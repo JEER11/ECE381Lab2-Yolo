@@ -64,7 +64,7 @@ jetson-containers run dustynv/l4t-pytorch:r36.4.0
 
 You will know you are inside the container when your terminal prompt changes to:
 ```
-root@l4t-pytorch
+root@ubuntu
 ```
 
 ---
@@ -215,7 +215,7 @@ You will know it is complete when you see the results table printed in the termi
 
 To view the generated image, open a **new terminal** on the host and run:
 ```bash
-docker cp $(docker ps -q):/lab4_outputs/partA_first_image.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partA_first_image.png ~/
 ```
 
 ---
@@ -399,9 +399,9 @@ You will know it is complete when you see:
 
 To copy the output images to your host machine, open a **new terminal** and run:
 ```bash
-docker cp $(docker ps -q):/lab4_outputs/partB1_forward_diffusion.png ~/
-docker cp $(docker ps -q):/lab4_outputs/partB2_schedule_comparison.png ~/
-docker cp $(docker ps -q):/lab4_outputs/partB3_beta_sensitivity.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partB1_forward_diffusion.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partB2_schedule_comparison.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partB3_beta_sensitivity.png ~/
 ```
 
 ---
@@ -623,8 +623,8 @@ You will know it is complete when you see:
 
 To copy the output images to your host machine, open a **new terminal** and run:
 ```bash
-docker cp $(docker ps -q):/lab4_outputs/partC3_noise_prediction.png ~/
-docker cp $(docker ps -q):/lab4_outputs/partC4_mse_vs_timestep.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partC3_noise_prediction.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partC4_mse_vs_timestep.png ~/
 ```
 
 ---
@@ -871,11 +871,11 @@ You will know it is complete when you see:
 
 To copy the output images to your host machine, open a **new terminal** and run:
 ```bash
-docker cp $(docker ps -q):/lab4_outputs/partD1_timesteps.png ~/
-docker cp $(docker ps -q):/lab4_outputs/partD2_schedule.png ~/
-docker cp $(docker ps -q):/lab4_outputs/partD3_beta_end.png ~/
-docker cp $(docker ps -q):/lab4_outputs/partD4_beta_start.png ~/
-docker cp $(docker ps -q):/lab4_outputs/partD5_speed_vs_quality.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partD1_timesteps.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partD2_schedule.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partD3_beta_end.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partD4_beta_start.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partD5_speed_vs_quality.png ~/
 ```
 
 ---
@@ -1090,8 +1090,8 @@ You will know it is complete when you see:
 
 To copy the output images to your host machine, open a **new terminal** and run:
 ```bash
-docker cp $(docker ps -q):/lab4_outputs/partE1_batch_profiling.png ~/
-docker cp $(docker ps -q):/lab4_outputs/partE2_sustained_latency.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partE1_batch_profiling.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partE2_sustained_latency.png ~/
 ```
 
 ---
@@ -1357,8 +1357,8 @@ You will know it is complete when you see:
 
 To copy the output images to your host machine, open a **new terminal** and run:
 ```bash
-docker cp $(docker ps -q):/lab4_outputs/partF_loss_curve.png ~/
-docker cp $(docker ps -q):/lab4_outputs/partF_before_after.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partF_loss_curve.png ~/
+sudo docker cp $(docker ps -q):/lab4_outputs/partF_before_after.png ~/
 ```
 
 ---
