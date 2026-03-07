@@ -125,17 +125,23 @@ When deliberately utilizing prompts for objects not present in the frame (e.g., 
 
 | Prompt | Detection Score | Visual Results (Captured Image, Per-Patch Score, Detection + Heatmap) |
 | :--- | :--- | :--- |
-| "a dog" | 0.01 | <img src="images/combined_dog.jpg" width="100%"/> |
-| "a car" | Not Recorded | <img src="images/combined_car.jpg" width="100%"/> |
-| "a chair" | 0.07 | <img src="images/combined_chair.jpg" width="100%"/> |
+| "a dog" | 0.01 | <img width="1703" height="548" alt="image70" src="https://github.com/user-attachments/assets/1c63bdda-284e-42df-b2df-a63c266462e3" />
+ |
+| "a car" | Not Recorded | <img width="1639" height="540" alt="image71" src="https://github.com/user-attachments/assets/2d3d0ea3-f608-42ff-89fb-135f4fcda061" />
+ |
+| "a chair" | 0.07 | <img width="1639" height="540" alt="image14" src="https://github.com/user-attachments/assets/f6d4a49f-8dbb-426b-b20a-a3f1a2790066" />
+ |
 
 #### Experiment C: Adversarial Prompts
 
 | Prompt | Detection Score | Visual Results (Captured Image, Per-Patch Score, Detection + Heatmap) |
 | :--- | :--- | :--- |
-| "a face but not wearing glasses" | 0.21 | <img src="images/combined_no_glasses.jpg" width="100%"/> |
-| "a happy face" | 0.50 | <img src="images/combined_happy.jpg" width="100%"/> |
-| "a sad face" | 0.52 | <img src="images/combined_sad.jpg" width="100%"/> |
+| "a face but not wearing glasses" | 0.21 | <img width="1639" height="540" alt="image25" src="https://github.com/user-attachments/assets/001117a3-2d5a-4c33-8707-968d01149cdb" />
+ |
+| "a happy face" | 0.50 | <img width="1639" height="540" alt="image56" src="https://github.com/user-attachments/assets/6bcec686-e559-476e-ab2a-17ec254ef655" />
+ |
+| "a sad face" | 0.52 | <img width="1639" height="540" alt="image11" src="https://github.com/user-attachments/assets/338ba6ec-65e0-4890-b8da-2fb26acc1a4f" />
+ |
 
 ### Part 3: Tree Prompt Design & Failure Mode Documentation
 The final phase involved designing complex hierarchies and documenting the physical conditions under which the model's performance degrades.
@@ -145,9 +151,39 @@ We iterated through three versions of a tree prompt. While the model effectively
 
 | Iteration | Tree Prompt String | Visual Results (Detected & Missed) |
 | :--- | :--- | :--- |
-| 1 | `[A man]` | <img src="images/combined_tree_1.jpg" width="100%"/> |
-| 2 | `[A man [standing]]` | <img src="images/combined_tree_2.jpg" width="100%"/> |
-| 3 | `[A man [standing], [water bottle]]` | <img src="images/combined_tree_3.jpg" width="100%"/> |
+| 1 | `[A man]` | <img width="1639" height="540" alt="image30" src="https://github.com/user-attachments/assets/df3eca8d-9113-4fbc-982f-978236ab81d1" />
+ |
+| 2 | `[A man [standing]]` | <img width="1639" height="540" alt="image38" src="https://github.com/user-attachments/assets/b4c14b79-d3c3-4495-b0f0-b2c9edb0c51a" />
+ |
+| 3 | `[A man [standing], [water bottle]]` | <img width="1639" height="540" alt="image62" src="https://github.com/user-attachments/assets/ebe820ba-241f-47d4-a3b7-5a6ea81ba5b9" />
+ |
+
+#### Activity B: Failure Mode Analysis
+Nine tests were conducted to identify the model's breaking points.
+
+* **Distance Observations:** A notable drop in confidence occurred at a 1-meter distance with a score of 0.07, though the score recovered significantly at 3 meters to 0.45. This non-linear performance suggests sensitivity to the scale of the object patches.
+* **Robustness:** The model demonstrated high resilience to occlusion and lighting. It successfully maintained face detection even when half the face was covered or when a phone flashlight was pointed directly at the lens.
+
+| Test | Condition | Detection Score | Visual Results | Hypothesis for why it failed |
+| :--- | :--- | :--- | :--- | :--- |
+| **Occlusion** | Cover half your face with your hand | 0.39 | <img width="1639" height="540" alt="image21" src="https://github.com/user-attachments/assets/54ad8b50-dd11-4dcd-a3f3-cdc04d4e897b" />
+ | Didn't fail |
+| **Lighting** | Point the phone flashlight directly at the camera | 0.42 | <img width="1639" height="540" alt="image64" src="https://github.com/user-attachments/assets/65196f7d-2747-488c-bd29-704b7ea1412d" />
+ | Didn't fail |
+| **Lighting** | Dim the room lights as much as possible | Not Recorded | <img width="1639" height="540" alt="image53" src="https://github.com/user-attachments/assets/ecb35065-6b3b-487e-a2d1-98082c7eeda4" />
+ | Didn't fail |
+| **Distance** | Sit as close as possible to the camera | Not Recorded | <img width="1639" height="540" alt="image81" src="https://github.com/user-attachments/assets/2a54703a-d58c-4efc-8832-f24979f4f6cf" />
+ | Didn't fail |
+| **Distance** | Sit at a medium distance (~1m) | 0.07 | <img width="1639" height="540" alt="image17" src="https://github.com/user-attachments/assets/a4ab51f6-9efe-451a-b76a-f1eb385ece0e" />
+ | Didn't fail |
+| **Distance** | Sit far from the camera (~3m) | Not Recorded | <img width="1639" height="540" alt="image59" src="https://github.com/user-attachments/assets/ed14852a-0a85-4416-b363-e65dc56515ee" />
+ | Didn't fail |
+| **Multi-person** | Two students in frame | 0.74 | <img width="1639" height="540" alt="image49" src="https://github.com/user-attachments/assets/5e5b28a1-0147-45db-ab05-b53965603d9b" />
+ | Didn't fail |
+| **Rotation** | Tilt head 45 degrees | 0.31 | <img width="1639" height="540" alt="image33" src="https://github.com/user-attachments/assets/9395e288-11c2-4909-b4ad-0c83dc50f2e9" />
+ | Didn't fail |
+| **Rotation** | Tilt head 90 degrees | 0.48 | <img width="1639" height="540" alt="image47" src="https://github.com/user-attachments/assets/e82f74f7-8fc9-42d1-88ff-dfd98d0ceda8" />
+ | Didn't fail |
 
 ## Lab 4
 
