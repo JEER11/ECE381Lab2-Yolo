@@ -1,6 +1,6 @@
 # Lab 1
 
-## Lab 2: YOLOv11n Object Detection Task
+# Lab 2: YOLOv11n Object Detection Task
 
 ### No Datasets
 Running the YOLO model without datasets.
@@ -48,6 +48,7 @@ Results using the mid-sized dataset. This model showed a significant improvement
   <img width="48%" alt="image9" src="https://github.com/user-attachments/assets/527083e4-159b-42be-9322-36b1af0699e9" />
   <img width="48%" alt="image8" src="https://github.com/user-attachments/assets/871e3a2d-d580-4122-ae3f-1a6938be02fe" />
 </p>
+
 **Fig. 4. Custom Detection: Dataset-50**
 
 Inference using the largest dataset. This model provides the most robust results with an mAP@50-95 of 0.8751, the highest among all three tests. The increased data volume allowed the model to maintain high accuracy and stable confidence scores (averaging 0.89) despite background noise or changes in lighting.
@@ -69,7 +70,7 @@ Inference using the largest dataset. This model provides the most robust results
 We conducted a test using the web interface to observe the model's performance when adding multiple face characteristics. The model successfully detected all specified facial features without any issues.
 
 <p align="center">
-<img width="654" height="596" alt="image84" src="https://github.com/user-attachments/assets/21a8f445-e0a0-42d2-871d-b9f6b11df346" />
+  <img width="654" height="596" alt="image84" src="https://github.com/user-attachments/assets/21a8f445-e0a0-42d2-871d-b9f6b11df346" />
 </p>
 
 **Fig 1. Face, nose, eye, and mouth detection through a website**
@@ -78,7 +79,7 @@ We conducted a test using the web interface to observe the model's performance w
 The initial phase involved establishing a baseline for the NanoOWL Vision Transformer utilizing both the web interface and terminal-based scripts.
 
 <p align="center">
-<img width="654" height="596" alt="image75" src="https://github.com/user-attachments/assets/868c91ce-3d48-4bd8-b2af-223c5f65f400" />
+  <img width="654" height="596" alt="image75" src="https://github.com/user-attachments/assets/868c91ce-3d48-4bd8-b2af-223c5f65f400" />
 </p>
 
 **Fig 2. Face detection through a website**
@@ -86,7 +87,7 @@ The initial phase involved establishing a baseline for the NanoOWL Vision Transf
 * **Hierarchical Detection (Fig 1 & 2):** We first utilized the `tree_demo` web interface to evaluate the model's nested detection capabilities. By inputting the prompt `[a face [a nose, an eye, a mouth]]`, we confirmed that the model successfully localized sub-features within a parent object without experiencing confusion.
 
 <p align="center">
-<img width="1277" height="428" alt="image80" src="https://github.com/user-attachments/assets/1b4f9ea8-f0e4-444f-a2fd-b92ca9b0db98" />
+  <img width="1277" height="428" alt="image80" src="https://github.com/user-attachments/assets/1b4f9ea8-f0e4-444f-a2fd-b92ca9b0db98" />
 </p>
 
 **Fig 3. Face Detection through the terminal**
@@ -94,7 +95,7 @@ The initial phase involved establishing a baseline for the NanoOWL Vision Transf
 * **Terminal Execution & Static Capture (Fig 3):** We executed the `attention_heatmap.py` script via the terminal to observe the model's focus on a single subject. The script successfully localized the face and provided a per-patch attention map that visualized the transformer's specific focus areas.
 
 <p align="center">
-<img width="1807" height="606" alt="image69" src="https://github.com/user-attachments/assets/bee84570-ae73-4131-a868-8512d05856ac" />
+  <img width="1807" height="606" alt="image69" src="https://github.com/user-attachments/assets/bee84570-ae73-4131-a868-8512d05856ac" />
 </p>
 
 **Fig 4. Water Bottle Detection**
@@ -109,39 +110,28 @@ We observed that as the prompts became increasingly descriptive, the detection s
 
 | Prompt | Detection Score | Visual Results (Captured Image, Per-Patch Score, Detection + Heatmap) |
 | :--- | :--- | :--- |
-| "an object" | 0.01 | <img width="1703" height="548" alt="image76" src="https://github.com/user-attachments/assets/a84ac171-4c83-434e-a3cd-0c1faa983d3b" />
- |
-| "a person" | 0.16 | <img width="1703" height="548" alt="image29" src="https://github.com/user-attachments/assets/83205856-64ff-452a-9ba4-c21caa8fdf80" />
- |
-| "a face" | 0.36 | <img width="1703" height="548" alt="image57" src="https://github.com/user-attachments/assets/0d903f7a-9cae-4e45-a551-662c7769ec4f" />
- |
-| "a human face with glasses" | 0.45 | <img width="1703" height="548" alt="image79" src="https://github.com/user-attachments/assets/a6403291-4f96-494d-8b52-c9d2d844f11b" />
- |
-| "a male face with glasses and a beard" | 0.16 | <img <img width="1639" height="540" alt="image10" src="https://github.com/user-attachments/assets/6745dff2-7adb-4c09-94f2-f34e778b962b" />
- |
+| "an object" | 0.01 | <img width="1703" height="548" alt="image76" src="https://github.com/user-attachments/assets/a84ac171-4c83-434e-a3cd-0c1faa983d3b" /> |
+| "a person" | 0.16 | <img width="1703" height="548" alt="image29" src="https://github.com/user-attachments/assets/83205856-64ff-452a-9ba4-c21caa8fdf80" /> |
+| "a face" | 0.36 | <img width="1703" height="548" alt="image57" src="https://github.com/user-attachments/assets/0d903f7a-9cae-4e45-a551-662c7769ec4f" /> |
+| "a human face with glasses" | 0.45 | <img width="1703" height="548" alt="image79" src="https://github.com/user-attachments/assets/a6403291-4f96-494d-8b52-c9d2d844f11b" /> |
+| "a male face with glasses and a beard" | 0.16 | <img width="1639" height="540" alt="image10" src="https://github.com/user-attachments/assets/6745dff2-7adb-4c09-94f2-f34e778b962b" /> |
 
 #### Experiment B: Wrong Prompts
 When deliberately utilizing prompts for objects not present in the frame (e.g., "dog" or "car"), the model did not return a null result. Instead, it landed on background elements or anatomical features, such as a shoulder, attempting to find the closest visual approximation to the text embedding. This indicates that the model handles uncertainty by forcing a match rather than providing a low-confidence rejection.
 
 | Prompt | Detection Score | Visual Results (Captured Image, Per-Patch Score, Detection + Heatmap) |
 | :--- | :--- | :--- |
-| "a dog" | 0.01 | <img width="1703" height="548" alt="image70" src="https://github.com/user-attachments/assets/1c63bdda-284e-42df-b2df-a63c266462e3" />
- |
-| "a car" | Not Recorded | <img width="1639" height="540" alt="image71" src="https://github.com/user-attachments/assets/2d3d0ea3-f608-42ff-89fb-135f4fcda061" />
- |
-| "a chair" | 0.07 | <img width="1639" height="540" alt="image14" src="https://github.com/user-attachments/assets/f6d4a49f-8dbb-426b-b20a-a3f1a2790066" />
- |
+| "a dog" | 0.01 | <img width="1703" height="548" alt="image70" src="https://github.com/user-attachments/assets/1c63bdda-284e-42df-b2df-a63c266462e3" /> |
+| "a car" | Not Recorded | <img width="1639" height="540" alt="image71" src="https://github.com/user-attachments/assets/2d3d0ea3-f608-42ff-89fb-135f4fcda061" /> |
+| "a chair" | 0.07 | <img width="1639" height="540" alt="image14" src="https://github.com/user-attachments/assets/f6d4a49f-8dbb-426b-b20a-a3f1a2790066" /> |
 
 #### Experiment C: Adversarial Prompts
 
 | Prompt | Detection Score | Visual Results (Captured Image, Per-Patch Score, Detection + Heatmap) |
 | :--- | :--- | :--- |
-| "a face but not wearing glasses" | 0.21 | <img width="1639" height="540" alt="image25" src="https://github.com/user-attachments/assets/001117a3-2d5a-4c33-8707-968d01149cdb" />
- |
-| "a happy face" | 0.50 | <img width="1639" height="540" alt="image56" src="https://github.com/user-attachments/assets/6bcec686-e559-476e-ab2a-17ec254ef655" />
- |
-| "a sad face" | 0.52 | <img width="1639" height="540" alt="image11" src="https://github.com/user-attachments/assets/338ba6ec-65e0-4890-b8da-2fb26acc1a4f" />
- |
+| "a face but not wearing glasses" | 0.21 | <img width="1639" height="540" alt="image25" src="https://github.com/user-attachments/assets/001117a3-2d5a-4c33-8707-968d01149cdb" /> |
+| "a happy face" | 0.50 | <img width="1639" height="540" alt="image56" src="https://github.com/user-attachments/assets/6bcec686-e559-476e-ab2a-17ec254ef655" /> |
+| "a sad face" | 0.52 | <img width="1639" height="540" alt="image11" src="https://github.com/user-attachments/assets/338ba6ec-65e0-4890-b8da-2fb26acc1a4f" /> |
 
 ### Part 3: Tree Prompt Design & Failure Mode Documentation
 The final phase involved designing complex hierarchies and documenting the physical conditions under which the model's performance degrades.
@@ -151,12 +141,9 @@ We iterated through three versions of a tree prompt. While the model effectively
 
 | Iteration | Tree Prompt String | Visual Results (Detected & Missed) |
 | :--- | :--- | :--- |
-| 1 | `[A man]` | <img width="1639" height="540" alt="image30" src="https://github.com/user-attachments/assets/df3eca8d-9113-4fbc-982f-978236ab81d1" />
- |
-| 2 | `[A man [standing]]` | <img width="1639" height="540" alt="image38" src="https://github.com/user-attachments/assets/b4c14b79-d3c3-4495-b0f0-b2c9edb0c51a" />
- |
-| 3 | `[A man [standing], [water bottle]]` | <img width="1639" height="540" alt="image62" src="https://github.com/user-attachments/assets/ebe820ba-241f-47d4-a3b7-5a6ea81ba5b9" />
- |
+| 1 | `[A man]` | <img width="1639" height="540" alt="image30" src="https://github.com/user-attachments/assets/df3eca8d-9113-4fbc-982f-978236ab81d1" /> |
+| 2 | `[A man [standing]]` | <img width="1639" height="540" alt="image38" src="https://github.com/user-attachments/assets/b4c14b79-d3c3-4495-b0f0-b2c9edb0c51a" /> |
+| 3 | `[A man [standing], [water bottle]]` | <img width="1639" height="540" alt="image62" src="https://github.com/user-attachments/assets/ebe820ba-241f-47d4-a3b7-5a6ea81ba5b9" /> |
 
 #### Activity B: Failure Mode Analysis
 Nine tests were conducted to identify the model's breaking points.
@@ -166,25 +153,15 @@ Nine tests were conducted to identify the model's breaking points.
 
 | Test | Condition | Detection Score | Visual Results | Hypothesis for why it failed |
 | :--- | :--- | :--- | :--- | :--- |
-| **Occlusion** | Cover half your face with your hand | 0.39 | <img width="1639" height="540" alt="image21" src="https://github.com/user-attachments/assets/54ad8b50-dd11-4dcd-a3f3-cdc04d4e897b" />
- | Didn't fail |
-| **Lighting** | Point the phone flashlight directly at the camera | 0.42 | <img width="1639" height="540" alt="image64" src="https://github.com/user-attachments/assets/65196f7d-2747-488c-bd29-704b7ea1412d" />
- | Didn't fail |
-| **Lighting** | Dim the room lights as much as possible | Not Recorded | <img width="1639" height="540" alt="image53" src="https://github.com/user-attachments/assets/ecb35065-6b3b-487e-a2d1-98082c7eeda4" />
- | Didn't fail |
-| **Distance** | Sit as close as possible to the camera | Not Recorded | <img width="1639" height="540" alt="image81" src="https://github.com/user-attachments/assets/2a54703a-d58c-4efc-8832-f24979f4f6cf" />
- | Didn't fail |
-| **Distance** | Sit at a medium distance (~1m) | 0.07 | <img width="1639" height="540" alt="image17" src="https://github.com/user-attachments/assets/a4ab51f6-9efe-451a-b76a-f1eb385ece0e" />
- | Didn't fail |
-| **Distance** | Sit far from the camera (~3m) | Not Recorded | <img width="1639" height="540" alt="image59" src="https://github.com/user-attachments/assets/ed14852a-0a85-4416-b363-e65dc56515ee" />
- | Didn't fail |
-| **Multi-person** | Two students in frame | 0.74 | <img width="1639" height="540" alt="image49" src="https://github.com/user-attachments/assets/5e5b28a1-0147-45db-ab05-b53965603d9b" />
- | Didn't fail |
-| **Rotation** | Tilt head 45 degrees | 0.31 | <img width="1639" height="540" alt="image33" src="https://github.com/user-attachments/assets/9395e288-11c2-4909-b4ad-0c83dc50f2e9" />
- | Didn't fail |
-| **Rotation** | Tilt head 90 degrees | 0.48 | <img width="1639" height="540" alt="image47" src="https://github.com/user-attachments/assets/e82f74f7-8fc9-42d1-88ff-dfd98d0ceda8" />
- | Didn't fail |
+| **Occlusion** | Cover half your face with your hand | 0.39 | <img width="1639" height="540" alt="image21" src="https://github.com/user-attachments/assets/54ad8b50-dd11-4dcd-a3f3-cdc04d4e897b" /> | Didn't fail |
+| **Lighting** | Point the phone flashlight directly at the camera | 0.42 | <img width="1639" height="540" alt="image64" src="https://github.com/user-attachments/assets/65196f7d-2747-488c-bd29-704b7ea1412d" /> | Didn't fail |
+| **Lighting** | Dim the room lights as much as possible | Not Recorded | <img width="1639" height="540" alt="image53" src="https://github.com/user-attachments/assets/ecb35065-6b3b-487e-a2d1-98082c7eeda4" /> | Didn't fail |
+| **Distance** | Sit as close as possible to the camera | Not Recorded | <img width="1639" height="540" alt="image81" src="https://github.com/user-attachments/assets/2a54703a-d58c-4efc-8832-f24979f4f6cf" /> | Didn't fail |
+| **Distance** | Sit at a medium distance (~1m) | 0.07 | <img width="1639" height="540" alt="image17" src="https://github.com/user-attachments/assets/a4ab51f6-9efe-451a-b76a-f1eb385ece0e" /> | Didn't fail |
+| **Distance** | Sit far from the camera (~3m) | Not Recorded | <img width="1639" height="540" alt="image59" src="https://github.com/user-attachments/assets/ed14852a-0a85-4416-b363-e65dc56515ee" /> | Didn't fail |
+| **Multi-person** | Two students in frame | 0.74 | <img width="1639" height="540" alt="image49" src="https://github.com/user-attachments/assets/5e5b28a1-0147-45db-ab05-b53965603d9b" /> | Didn't fail |
+| **Rotation** | Tilt head 45 degrees | 0.31 | <img width="1639" height="540" alt="image33" src="https://github.com/user-attachments/assets/9395e288-11c2-4909-b4ad-0c83dc50f2e9" /> | Didn't fail |
+| **Rotation** | Tilt head 90 degrees | 0.48 | <img width="1639" height="540" alt="image47" src="https://github.com/user-attachments/assets/e82f74f7-8fc9-42d1-88ff-dfd98d0ceda8" /> | Didn't fail |
 
 ## Lab 4
-
 
