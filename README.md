@@ -158,10 +158,10 @@ Nine tests were conducted to identify the model's breaking points.
 | **Lighting** | Dim the room lights as much as possible | Not Recorded | <img width="1639" height="540" alt="image53" src="https://github.com/user-attachments/assets/ecb35065-6b3b-487e-a2d1-98082c7eeda4" /> | Didn't fail |
 | **Distance** | Sit as close as possible to the camera | Not Recorded | <img width="1639" height="540" alt="image81" src="https://github.com/user-attachments/assets/2a54703a-d58c-4efc-8832-f24979f4f6cf" /> | Didn't fail |
 | **Distance** | Sit at a medium distance (~1m) | 0.07 | <img width="1639" height="540" alt="image17" src="https://github.com/user-attachments/assets/a4ab51f6-9efe-451a-b76a-f1eb385ece0e" /> | Didn't fail |
-| **Distance** | Sit far from the camera (~3m) | Not Recorded | <img width="1639" height="540" alt="image59" src="https://github.com/user-attachments/assets/ed14852a-0a85-4416-b363-e65dc56515ee" /> | Didn't fail |
+| **Distance** | Sit far from the camera (~3m) | 0.46 | <img width="1639" height="540" alt="image59" src="https://github.com/user-attachments/assets/ed14852a-0a85-4416-b363-e65dc56515ee" /> | Didn't fail |
 | **Multi-person** | Two students in frame | 0.74 | <img width="1639" height="540" alt="image49" src="https://github.com/user-attachments/assets/5e5b28a1-0147-45db-ab05-b53965603d9b" /> | Didn't fail |
 | **Rotation** | Tilt head 45 degrees | 0.31 | <img width="1639" height="540" alt="image33" src="https://github.com/user-attachments/assets/9395e288-11c2-4909-b4ad-0c83dc50f2e9" /> | Didn't fail |
 | **Rotation** | Tilt head 90 degrees | 0.48 | <img width="1639" height="540" alt="image47" src="https://github.com/user-attachments/assets/e82f74f7-8fc9-42d1-88ff-dfd98d0ceda8" /> | Didn't fail |
 
-## Lab 4
+# Lab 4
 
