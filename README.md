@@ -31,7 +31,8 @@ Four architectures were evaluated: AlexNet, SqueezeNet, ResNet-18, and ResNet-34
 | :---: | :---: |
 | <img src="https://github.com/user-attachments/assets/4e71a541-889d-4e29-8c22-24a0e8314ae1" width="100%"> | <img src="https://github.com/user-attachments/assets/9a6f294e-8b35-4c1b-b74f-5f17810d988e" width="100%"> |
 | **ResNet-34 (Thumbs Down)** | **ResNet-34 (Thumbs Up)** |
-| <img src="https://github.com/user-attachments/assets/b18e23cd-b62f-4b47-b317-56aa0cdf3e3c" width="100%"> | <img src="images/image41.png" width="100%"> |
+| <img src="https://github.com/user-attachments/assets/b18e23cd-b62f-4b47-b317-56aa0cdf3e3c" width="100%"> | <img width="1999" height="1114" alt="image10" src="https://github.com/user-attachments/assets/c6b38921-3ed3-42d0-8e8a-c4573d9c39a8" />
+ |
 
 Approximately 30 to 50 images were captured for each gesture category. To enhance model robustness, the dataset incorporated variations in angles, distances, and hands from multiple team members to ensure the network learned the generalized gesture rather than subject-specific features. During real-time inference, the interactive sliders provided immediate feedback, demonstrating high probability confidence for the correct gestures.
 
@@ -62,7 +63,8 @@ The final classification assessment utilized custom gestures.
 
 | Rock | Luck | Dog |
 | :---: | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/3100ebfc-9be5-43d5-ba1b-8603ac1307e7" width="100%"> | <img src="https://github.com/user-attachments/assets/b0f008f1-f65a-4518-a917-29102e2c2798" width="100%"> | <img src="images/image21.png" width="100%"> |
+| <img src="https://github.com/user-attachments/assets/3100ebfc-9be5-43d5-ba1b-8603ac1307e7" width="100%"> | <img src="https://github.com/user-attachments/assets/b0f008f1-f65a-4518-a917-29102e2c2798" width="100%"> | <img width="1069" height="866" alt="image21" src="https://github.com/user-attachments/assets/f885b1cf-302a-479e-84ab-d3f04107b148" />
+ |
 
 A restricted dataset of 36 images per category was utilized for this trial. Despite the limited sample size, the model achieved 100% training accuracy. This outcome highlighted a clear instance of overfitting, as the network perfectly memorized the specific gestures within the static laboratory environment rather than learning generalized features.
 
