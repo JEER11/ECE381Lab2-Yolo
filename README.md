@@ -69,7 +69,7 @@ Inference using the largest dataset. This model provides the most robust results
 We conducted a test using the web interface to observe the model's performance when adding multiple face characteristics. The model successfully detected all specified facial features without any issues.
 
 <p align="center">
-  <img width="48%" alt="Face, nose, eye, and mouth detection" src="images/image84.png" />
+<img width="654" height="596" alt="image84" src="https://github.com/user-attachments/assets/21a8f445-e0a0-42d2-871d-b9f6b11df346" />
 </p>
 
 **Fig 1. Face, nose, eye, and mouth detection through a website**
@@ -77,7 +77,7 @@ We conducted a test using the web interface to observe the model's performance w
 ### Part 1: Baseline & Initial Detection The initial phase involved establishing a baseline for the NanoOWL Vision Transformer utilizing both the web interface and terminal-based scripts.
 
 <p align="center">
-  <img width="48%" alt="Face detection through a website" src="images/image75.png" />
+<img width="654" height="596" alt="image75" src="https://github.com/user-attachments/assets/868c91ce-3d48-4bd8-b2af-223c5f65f400" />
 </p>
 
 **Fig 2. Face detection through a website**
@@ -85,7 +85,7 @@ We conducted a test using the web interface to observe the model's performance w
 * **Hierarchical Detection (Fig 1 & 2):** We first utilized the `tree_demo` web interface to evaluate the model's nested detection capabilities. By inputting the prompt `[a face [a nose, an eye, a mouth]]`, we confirmed that the model successfully localized sub-features within a parent object without experiencing confusion.
 
 <p align="center">
-  <img width="48%" alt="Face Detection through the terminal" src="images/image80.png" />
+<img width="1277" height="428" alt="image80" src="https://github.com/user-attachments/assets/1b4f9ea8-f0e4-444f-a2fd-b92ca9b0db98" />
 </p>
 
 **Fig 3. Face Detection through the terminal**
@@ -93,7 +93,7 @@ We conducted a test using the web interface to observe the model's performance w
 * **Terminal Execution & Static Capture (Fig 3):** We executed the `attention_heatmap.py` script via the terminal to observe the model's focus on a single subject. The script successfully localized the face and provided a per-patch attention map that visualized the transformer's specific focus areas.
 
 <p align="center">
-  <img width="48%" alt="Water Bottle Detection" src="images/image69.png" />
+<img width="1807" height="606" alt="image69" src="https://github.com/user-attachments/assets/bee84570-ae73-4131-a868-8512d05856ac" />
 </p>
 
 **Fig 4. Water Bottle Detection**
