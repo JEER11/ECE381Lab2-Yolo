@@ -1,4 +1,4 @@
-## Lab 1
+# Lab 1
 
 ## Lab 2: YOLOv11n Object Detection Task
 
@@ -63,7 +63,7 @@ Inference using the largest dataset. This model provides the most robust results
 | **Inference Speed** | 15.4ms - 16.7ms | 21.0ms | 15.9ms |
 
 
-## Lab 3: NanoOwl Vision Transformer
+# Lab 3: NanoOwl Vision Transformer
 
 ### 4. Procedure
 We conducted a test using the web interface to observe the model's performance when adding multiple face characteristics. The model successfully detected all specified facial features without any issues.
@@ -107,30 +107,35 @@ In this section, we systematically varied the text prompts to interrogate how th
 #### Experiment A: Specificity Ladder
 We observed that as the prompts became increasingly descriptive, the detection scores fluctuated. In several instances, the model's global attention shifted to background subjects rather than prioritizing the primary subject in the foreground. For prompts such as "a person" or "a face," the model occasionally prioritized individuals in the background, suggesting that the ViT's attention can be distracted by higher-entropy features elsewhere in the frame. In most cases with specific prompts, it recognized a person from behind rather than the subject directly in front of the camera.
 
-| Prompt | Detection Score | Box Location | Heatmap Concentration |
-| :--- | :--- | :--- | :--- |
-| "an object" | <img src="images/image76.png" width="100"/><br><img src="images/image54.png" width="100"/><br>0.01 | <img src="images/image27.png" width="100"/> | <img src="images/image34.png" width="100"/> |
-| "a person" | <img src="images/image29.png" width="100"/><br><img src="images/image78.png" width="100"/><br>0.16 | <img src="images/image18.png" width="100"/> | <img src="images/image82.png" width="100"/> |
-| "a face" | <img src="images/image57.png" width="100"/><br><img src="images/image15.png" width="100"/><br>0.36 | <img src="images/image74.png" width="100"/> | <img src="images/image31.png" width="100"/> |
-| "a human face with glasses" | <img src="images/image79.png" width="100"/><br><img src="images/image22.png" width="100"/><br>0.45 | <img src="images/image8.png" width="100"/> | <img src="images/image4.png" width="100"/> |
-| "a male face with glasses and a beard" | <img src="images/image10.png" width="100"/><br><img src="images/image43.png" width="100"/><br>0.16 | <img src="images/image39.png" width="100"/> | <img src="images/image36.png" width="100"/> |
+| Prompt | Detection Score | Visual Results (Captured Image, Per-Patch Score, Detection + Heatmap) |
+| :--- | :--- | :--- |
+| "an object" | 0.01 | <img width="1703" height="548" alt="image76" src="https://github.com/user-attachments/assets/a84ac171-4c83-434e-a3cd-0c1faa983d3b" />
+ |
+| "a person" | 0.16 | <img width="1703" height="548" alt="image29" src="https://github.com/user-attachments/assets/83205856-64ff-452a-9ba4-c21caa8fdf80" />
+ |
+| "a face" | 0.36 | <img width="1703" height="548" alt="image57" src="https://github.com/user-attachments/assets/0d903f7a-9cae-4e45-a551-662c7769ec4f" />
+ |
+| "a human face with glasses" | 0.45 | <img width="1703" height="548" alt="image79" src="https://github.com/user-attachments/assets/a6403291-4f96-494d-8b52-c9d2d844f11b" />
+ |
+| "a male face with glasses and a beard" | 0.16 | <img <img width="1639" height="540" alt="image10" src="https://github.com/user-attachments/assets/6745dff2-7adb-4c09-94f2-f34e778b962b" />
+ |
 
 #### Experiment B: Wrong Prompts
 When deliberately utilizing prompts for objects not present in the frame (e.g., "dog" or "car"), the model did not return a null result. Instead, it landed on background elements or anatomical features, such as a shoulder, attempting to find the closest visual approximation to the text embedding. This indicates that the model handles uncertainty by forcing a match rather than providing a low-confidence rejection.
 
-| Prompt | Detection Score | Box Location (correct/incorrect/none) | Heatmap Concentration |
-| :--- | :--- | :--- | :--- |
-| "a dog" | <img src="images/image70.png" width="100"/><br><img src="images/image83.png" width="100"/><br>0.01 | <img src="images/image66.png" width="100"/> | <img src="images/image52.png" width="100"/> |
-| "a car" | <img src="images/image71.png" width="100"/><br><img src="images/image20.png" width="100"/> | <img src="images/image32.png" width="100"/> | <img src="images/image32.png" width="100"/> |
-| "a chair" | <img src="images/image14.png" width="100"/><br><img src="images/image3.png" width="100"/><br>0.07 | <img src="images/image19.png" width="100"/> | <img src="images/image35.png" width="100"/> |
+| Prompt | Detection Score | Visual Results (Captured Image, Per-Patch Score, Detection + Heatmap) |
+| :--- | :--- | :--- |
+| "a dog" | 0.01 | <img src="images/combined_dog.jpg" width="100%"/> |
+| "a car" | Not Recorded | <img src="images/combined_car.jpg" width="100%"/> |
+| "a chair" | 0.07 | <img src="images/combined_chair.jpg" width="100%"/> |
 
 #### Experiment C: Adversarial Prompts
 
-| Prompt | Detection Score | Box Location | Heatmap Concentration |
-| :--- | :--- | :--- | :--- |
-| "a face but not wearing glasses" | <img src="images/image25.png" width="100"/><br><img src="images/image45.png" width="100"/><br>0.21 | <img src="images/image26.png" width="100"/> | <img src="images/image13.png" width="100"/> |
-| "a happy face" | <img src="images/image56.png" width="100"/><br><img src="images/image46.png" width="100"/><br>0.50 | <img src="images/image68.png" width="100"/> | <img src="images/image9.png" width="100"/> |
-| "a sad face" | <img src="images/image11.png" width="100"/><br><img src="images/image72.png" width="100"/><br>0.52 | <img src="images/image23.png" width="100"/> | <img src="images/image7.png" width="100"/> |
+| Prompt | Detection Score | Visual Results (Captured Image, Per-Patch Score, Detection + Heatmap) |
+| :--- | :--- | :--- |
+| "a face but not wearing glasses" | 0.21 | <img src="images/combined_no_glasses.jpg" width="100%"/> |
+| "a happy face" | 0.50 | <img src="images/combined_happy.jpg" width="100%"/> |
+| "a sad face" | 0.52 | <img src="images/combined_sad.jpg" width="100%"/> |
 
 ### Part 3: Tree Prompt Design & Failure Mode Documentation
 The final phase involved designing complex hierarchies and documenting the physical conditions under which the model's performance degrades.
@@ -138,29 +143,11 @@ The final phase involved designing complex hierarchies and documenting the physi
 #### Activity A: Tree Prompt Refinement
 We iterated through three versions of a tree prompt. While the model effectively detected "a man" and "standing," it struggled to identify a "water bottle" when nested within a larger hierarchical prompt. Even when the bottle was held close to the body or out to the side, the model failed to detect it within the tree structure, suggesting a limit to the complexity of nested objects it can process simultaneously.
 
-| Iteration | Tree Prompt String | What was detected | What was missed |
-| :--- | :--- | :--- | :--- |
-| 1 | `[A man]` | <img src="images/image30.png" width="100"/><br><img src="images/image28.png" width="100"/> | <img src="images/image5.png" width="100"/> |
-| 2 | `[A man [standing]]` | <img src="images/image38.png" width="100"/><br><img src="images/image67.png" width="100"/> | <img src="images/image37.png" width="100"/> |
-| 3 | `[A man [standing], [water bottle]]` | <img src="images/image62.png" width="100"/><br><img src="images/image40.png" width="100"/> | <img src="images/image41.png" width="100"/> |
-
-#### Activity B: Failure Mode Analysis
-Nine tests were conducted to identify the model's breaking points.
-
-* **Distance Observations:** A notable drop in confidence occurred at a 1-meter distance (score: 0.07), though the score recovered significantly at 3 meters (0.45). This non-linear performance suggests sensitivity to the scale of the object patches.
-* **Robustness:** Surprisingly, the model demonstrated high resilience to Occlusion and Lighting. It successfully maintained face detection even when half the face was covered or when a phone flashlight was pointed directly at the lens.
-
-| Test | Condition | Detection Score | Box Location | Hypothesis for why it failed |
-| :--- | :--- | :--- | :--- | :--- |
-| Occlusion | Cover half your face with your hand | <img src="images/image21.png" width="100"/><br><img src="images/image24.png" width="100"/><br>0.39 | <img src="images/image50.png" width="100"/> | Didn't fail |
-| Lighting | Point the phone flashlight directly at the camera | <img src="images/image12.png" width="100"/><br><img src="images/image64.png" width="100"/><br><img src="images/image58.png" width="100"/><br>0.42 | <img src="images/image61.png" width="100"/> | Didn't fail |
-| Lighting | Dim the room lights as much as possible | <img src="images/image53.png" width="100"/><br><img src="images/image51.png" width="100"/> | <img src="images/image73.png" width="100"/> | Didn't fail |
-| Distance | Sit as close as possible to the camera | <img src="images/image81.png" width="100"/><br><img src="images/image44.png" width="100"/> | <img src="images/image42.png" width="100"/> | Didn't fail |
-| Distance | Sit at a medium distance (~1m) | <img src="images/image17.png" width="100"/><br><img src="images/image2.png" width="100"/><br>0.07 | <img src="images/image16.png" width="100"/> | Didn't fail |
-| Distance | Sit far from the camera (~3m) | <img src="images/image59.png" width="100"/><br><img src="images/image6.png" width="100"/> | <img src="images/image48.png" width="100"/> | Didn't fail |
-| Multi-person | Two students in frame | <img src="images/image49.png" width="100"/><br><img src="images/image77.png" width="100"/><br>0.74 | <img src="images/image55.png" width="100"/> | Didn't fail |
-| Rotation | Tilt head 45 degrees | <img src="images/image33.png" width="100"/><br><img src="images/image63.png" width="100"/><br>0.31 | <img src="images/image65.png" width="100"/> | Didn't fail |
-| Rotation | Tilt head 90 degrees | <img src="images/image47.png" width="100"/><br><img src="images/image1.png" width="100"/><br>0.48 | <img src="images/image60.png" width="100"/> | Didn't fail |
+| Iteration | Tree Prompt String | Visual Results (Detected & Missed) |
+| :--- | :--- | :--- |
+| 1 | `[A man]` | <img src="images/combined_tree_1.jpg" width="100%"/> |
+| 2 | `[A man [standing]]` | <img src="images/combined_tree_2.jpg" width="100%"/> |
+| 3 | `[A man [standing], [water bottle]]` | <img src="images/combined_tree_3.jpg" width="100%"/> |
 
 ## Lab 4
 
