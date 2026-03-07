@@ -65,5 +65,102 @@ Inference using the largest dataset. This model provides the most robust results
 
 ## Lab 3: NanoOwl Vision Transformer
 
+### 4. Procedure
+We conducted a test using the web interface to observe the model's performance when adding multiple face characteristics. The model successfully detected all specified facial features without any issues.
+
+<p align="center">
+  <img width="48%" alt="Face, nose, eye, and mouth detection" src="images/image84.png" />
+</p>
+
+**Fig 1. Face, nose, eye, and mouth detection through a website**
+
+### Part 1: Baseline & Initial Detection The initial phase involved establishing a baseline for the NanoOWL Vision Transformer utilizing both the web interface and terminal-based scripts.
+
+<p align="center">
+  <img width="48%" alt="Face detection through a website" src="images/image75.png" />
+</p>
+
+**Fig 2. Face detection through a website**
+
+* **Hierarchical Detection (Fig 1 & 2):** We first utilized the `tree_demo` web interface to evaluate the model's nested detection capabilities. By inputting the prompt `[a face [a nose, an eye, a mouth]]`, we confirmed that the model successfully localized sub-features within a parent object without experiencing confusion.
+
+<p align="center">
+  <img width="48%" alt="Face Detection through the terminal" src="images/image80.png" />
+</p>
+
+**Fig 3. Face Detection through the terminal**
+
+* **Terminal Execution & Static Capture (Fig 3):** We executed the `attention_heatmap.py` script via the terminal to observe the model's focus on a single subject. The script successfully localized the face and provided a per-patch attention map that visualized the transformer's specific focus areas.
+
+<p align="center">
+  <img width="48%" alt="Water Bottle Detection" src="images/image69.png" />
+</p>
+
+**Fig 4. Water Bottle Detection**
+
+* **Object Generalization (Fig 4):** To test the model's zero-shot capabilities beyond human features, we tested its ability to detect a water bottle. Even when the bottle was oriented sideways and partially cut off by the frame, the model successfully maintained an accurate bounding box.
+
+### Part 2: Prompt Engineering Experiments
+In this section, we systematically varied the text prompts to interrogate how the Vision Transformer (ViT) architecture handles specificity, uncertainty, and emotional attributes.
+
+#### Experiment A: Specificity Ladder
+We observed that as the prompts became increasingly descriptive, the detection scores fluctuated. In several instances, the model's global attention shifted to background subjects rather than prioritizing the primary subject in the foreground. For prompts such as "a person" or "a face," the model occasionally prioritized individuals in the background, suggesting that the ViT's attention can be distracted by higher-entropy features elsewhere in the frame. In most cases with specific prompts, it recognized a person from behind rather than the subject directly in front of the camera.
+
+| Prompt | Detection Score |
+| :--- | :--- |
+| "an object" | 0.01 |
+| "a person" | 0.16 |
+| "a face" | 0.36 |
+| "a human face with glasses" | 0.45 |
+| "a male face with glasses and a beard" | 0.16 |
+
+#### Experiment B: Wrong Prompts
+When deliberately utilizing prompts for objects not present in the frame (e.g., "dog" or "car"), the model did not return a null result. Instead, it landed on background elements or anatomical features, such as a shoulder, attempting to find the closest visual approximation to the text embedding. This indicates that the model handles uncertainty by forcing a match rather than providing a low-confidence rejection.
+
+| Prompt | Detection Score |
+| :--- | :--- |
+| "a dog" | 0.01 |
+| "a car" | Not Recorded |
+| "a chair" | 0.07 |
+
+#### Experiment C: Adversarial Prompts
+
+| Prompt | Detection Score |
+| :--- | :--- |
+| "a face but not wearing glasses" | 0.21 |
+| "a happy face" | 0.50 |
+| "a sad face" | 0.52 |
+
+### Part 3: Tree Prompt Design & Failure Mode Documentation
+The final phase involved designing complex hierarchies and documenting the physical conditions under which the model's performance degrades.
+
+#### Activity A: Tree Prompt Refinement
+We iterated through three versions of a tree prompt. While the model effectively detected "a man" and "standing," it struggled to identify a "water bottle" when nested within a larger hierarchical prompt. Even when the bottle was held close to the body or out to the side, the model failed to detect it within the tree structure, suggesting a limit to the complexity of nested objects it can process simultaneously.
+
+| Iteration | Tree Prompt String |
+| :--- | :--- |
+| 1 | `[A man]` |
+| 2 | `[A man [standing]]` |
+| 3 | `[A man [standing], [water bottle]]` |
+
+#### Activity B: Failure Mode Analysis
+Nine tests were conducted to identify the model's breaking points.
+
+* **Distance Observations:** A notable drop in confidence occurred at a 1-meter distance (score: 0.07), though the score recovered significantly at 3 meters (0.45). This non-linear performance suggests sensitivity to the scale of the object patches.
+* **Robustness:** Surprisingly, the model demonstrated high resilience to Occlusion and Lighting. It successfully maintained face detection even when half the face was covered or when a phone flashlight was pointed directly at the lens.
+
+| Test | Condition | Detection Score | Result |
+| :--- | :--- | :--- | :--- |
+| **Occlusion** | Cover half your face with your hand | 0.39 | Didn't fail |
+| **Lighting** | Point the phone flashlight directly at the camera | 0.42 | Didn't fail |
+| **Lighting** | Dim the room lights as much as possible | Not Recorded | Didn't fail |
+| **Distance** | Sit as close as possible to the camera | Not Recorded | Didn't fail |
+| **Distance** | Sit at a medium distance (~1m) | 0.07 | Didn't fail |
+| **Distance** | Sit far from the camera (~3m) | Not Recorded | Didn't fail |
+| **Multi-person** | Two students in frame | 0.74 | Didn't fail |
+| **Rotation** | Tilt head 45 degrees | 0.31 | Didn't fail |
+| **Rotation** | Tilt head 90 degrees | 0.48 | Didn't fail |
 
 ## Lab 4
+
+
