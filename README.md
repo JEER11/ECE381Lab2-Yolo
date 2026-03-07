@@ -31,8 +31,7 @@ Four architectures were evaluated: AlexNet, SqueezeNet, ResNet-18, and ResNet-34
 | :---: | :---: |
 | <img src="https://github.com/user-attachments/assets/4e71a541-889d-4e29-8c22-24a0e8314ae1" width="100%"> | <img src="https://github.com/user-attachments/assets/9a6f294e-8b35-4c1b-b74f-5f17810d988e" width="100%"> |
 | **ResNet-34 (Thumbs Down)** | **ResNet-34 (Thumbs Up)** |
-| <img src="https://github.com/user-attachments/assets/b18e23cd-b62f-4b47-b317-56aa0cdf3e3c" width="100%"> | <img width="1999" height="1114" alt="image10" src="https://github.com/user-attachments/assets/c6b38921-3ed3-42d0-8e8a-c4573d9c39a8" />
- |
+| <img src="https://github.com/user-attachments/assets/b18e23cd-b62f-4b47-b317-56aa0cdf3e3c" width="100%"> | <img width="1999" height="1114" alt="image10" src="https://github.com/user-attachments/assets/c6b38921-3ed3-42d0-8e8a-c4573d9c39a8" /> |
 
 Approximately 30 to 50 images were captured for each gesture category. To enhance model robustness, the dataset incorporated variations in angles, distances, and hands from multiple team members to ensure the network learned the generalized gesture rather than subject-specific features. During real-time inference, the interactive sliders provided immediate feedback, demonstrating high probability confidence for the correct gestures.
 
@@ -63,8 +62,7 @@ The final classification assessment utilized custom gestures.
 
 | Rock | Luck | Dog |
 | :---: | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/3100ebfc-9be5-43d5-ba1b-8603ac1307e7" width="100%"> | <img src="https://github.com/user-attachments/assets/b0f008f1-f65a-4518-a917-29102e2c2798" width="100%"> | <img width="1069" height="866" alt="image21" src="https://github.com/user-attachments/assets/f885b1cf-302a-479e-84ab-d3f04107b148" />
- |
+| <img src="https://github.com/user-attachments/assets/3100ebfc-9be5-43d5-ba1b-8603ac1307e7" width="100%"> | <img src="https://github.com/user-attachments/assets/b0f008f1-f65a-4518-a917-29102e2c2798" width="100%"> | <img width="1069" height="866" alt="image21" src="https://github.com/user-attachments/assets/f885b1cf-302a-479e-84ab-d3f04107b148" /> |
 
 A restricted dataset of 36 images per category was utilized for this trial. Despite the limited sample size, the model achieved 100% training accuracy. This outcome highlighted a clear instance of overfitting, as the network perfectly memorized the specific gestures within the static laboratory environment rather than learning generalized features.
 
@@ -108,9 +106,9 @@ The following table compares the four required models for the Thumbs Up/Down cla
 Running the YOLO model without datasets.
 
 <p align="center">
-<img width="649" height="508" alt="image2" src="https://github.com/user-attachments/assets/0e80bdb5-33d8-4dc4-b327-193a03232f8e" />
-<img width="649" height="508" alt="image6" src="https://github.com/user-attachments/assets/2a14a3e7-8cda-4bc2-bc8f-8ae680867d44" />
-<img width="638" height="517" alt="image8" src="https://github.com/user-attachments/assets/53b5e2ce-91b9-4dd3-a0de-e89e4498c3e7" />
+  <img width="32%" alt="image2" src="https://github.com/user-attachments/assets/0e80bdb5-33d8-4dc4-b327-193a03232f8e" />
+  <img width="32%" alt="image6" src="https://github.com/user-attachments/assets/2a14a3e7-8cda-4bc2-bc8f-8ae680867d44" />
+  <img width="32%" alt="image8" src="https://github.com/user-attachments/assets/53b5e2ce-91b9-4dd3-a0de-e89e4498c3e7" />
 </p>
 
 **Fig. 1. Pre-trained YOLOv11n Object Detection**
@@ -122,8 +120,8 @@ This figure shows the performance of the base model before custom training. Whil
 **Dataset10**
 
 <p align="center">
-<img width="642" height="520" alt="image11" src="https://github.com/user-attachments/assets/05035b07-dca5-4f1d-a36e-96d53601205c" />
-<img width="642" height="520" alt="image4" src="https://github.com/user-attachments/assets/c58ed52d-aa8a-48c5-952d-a0362bf2c45e" />
+  <img width="48%" alt="image11" src="https://github.com/user-attachments/assets/05035b07-dca5-4f1d-a36e-96d53601205c" />
+  <img width="48%" alt="image4" src="https://github.com/user-attachments/assets/c58ed52d-aa8a-48c5-952d-a0362bf2c45e" />
 </p>
 
 **Fig. 2. Custom Detection: Dataset-10**
@@ -134,8 +132,7 @@ Detection results using the smallest dataset, consisting of 10 images per class.
 
 <p align="center">
   <img width="48%" alt="image6" src="https://github.com/user-attachments/assets/ed197a2a-df85-42e7-8005-1f16288f5b8d" />
-  <img width="643" height="519" alt="image7" src="https://github.com/user-attachments/assets/feb9f11a-b7dc-4564-83ba-a1c12173e68f" />
-
+  <img width="48%" alt="image7" src="https://github.com/user-attachments/assets/feb9f11a-b7dc-4564-83ba-a1c12173e68f" />
 </p>
 
 **Fig. 3. Custom Detection: Dataset-25**
@@ -145,11 +142,11 @@ Results using the mid-sized dataset. This model showed a significant improvement
 **Dataset50**
 
 <p align="center">
-<img width="632" height="515" alt="image9" src="https://github.com/user-attachments/assets/649711b6-cf1e-4c68-a56e-f419eb9060b2" />
-<img width="632" height="515" alt="image1" src="https://github.com/user-attachments/assets/8d6f845b-b29d-41db-bd0d-46c34571d542" />
+  <img width="48%" alt="image9" src="https://github.com/user-attachments/assets/649711b6-cf1e-4c68-a56e-f419eb9060b2" />
+  <img width="48%" alt="image1" src="https://github.com/user-attachments/assets/8d6f845b-b29d-41db-bd0d-46c34571d542" />
   <br>
-<img width="632" height="515" alt="image3" src="https://github.com/user-attachments/assets/067e7f9a-7f38-4d7b-8d58-bc9175574954" />
-<img width="632" height="515" alt="image5" src="https://github.com/user-attachments/assets/c1e0d8ee-8dce-4591-b406-aa80628be7d9" />
+  <img width="48%" alt="image3" src="https://github.com/user-attachments/assets/067e7f9a-7f38-4d7b-8d58-bc9175574954" />
+  <img width="48%" alt="image5" src="https://github.com/user-attachments/assets/c1e0d8ee-8dce-4591-b406-aa80628be7d9" />
 </p>
 
 **Fig. 4. Custom Detection: Dataset-50**
