@@ -1,4 +1,149 @@
-# Lab 1
+# Lab 1: Image Classification & Regression
+
+## 4. Procedure
+
+### 4.1 Implementation Workflow
+
+<p align="center">
+<img width="1054" height="500" alt="image43" src="https://github.com/user-attachments/assets/ac3e7720-8dca-45a4-a782-99926766db26" />
+</p>
+
+**Fig. 1. Code Workflow**
+
+The system operates as a real-time pipeline on the Jetson hardware. The process initiates with the camera feed capturing raw frames, which subsequently undergo a pre-processing stage. This stage involves resizing the images to 224×224 pixels and applying normalization to ensure efficient data processing by the model backbone. Following pre-processing, the data is routed into the backbone for feature extraction. The pipeline concludes with either a classification output for discrete categories or a regression output for continuous coordinate tracking, depending on the specific task parameters.
+
+### 4.2 Architecture
+This experiment comprised a comparative analysis of four distinct neural network architectures to evaluate their efficacy in handling edge AI tasks on the Orin Nano platform.
+
+### 4.3 Dataset Creation
+The performance of each respective model was intrinsically linked to the quality and diversity of the captured training images. Custom datasets were generated for both classification and regression tasks utilizing interactive widgets. The primary objective during data collection was to introduce sufficient visual variety, enabling the models to generalize effectively rather than overfitting to a single spatial configuration.
+
+#### 4.3.1 Image Classification (Thumbs Up & Thumbs Down)
+Four architectures were evaluated: AlexNet, SqueezeNet, ResNet-18, and ResNet-34. The experimental procedure required sequential execution of code blocks to initialize both the camera feed and the data collection utility.
+
+**AlexNet & SqueezeNet**
+<p align="center">
+<img width="1999" height="1104" alt="image15" src="https://github.com/user-attachments/assets/cd1fccb2-4be8-47be-a0ef-5ef1fc635efa" />
+<img width="1999" height="1112" alt="image22" src="https://github.com/user-attachments/assets/2bb02aa4-fd09-4a7b-a5e4-d5c2f6c64a72" />
+  <br>
+<img width="1999" height="1117" alt="image30" src="https://github.com/user-attachments/assets/b18e23cd-b62f-4b47-b317-56aa0cdf3e3c" />
+<img width="1999" height="1089" alt="image26" src="https://github.com/user-attachments/assets/8c0403e1-b706-45ac-9191-c3c96dd8b60e" />
+</p>
+
+**ResNet-18 & ResNet-34**
+<p align="center">
+<img width="1999" height="1091" alt="image12" src="https://github.com/user-attachments/assets/86ebd336-3ad3-4d5e-965f-211eec4d60a2" />
+<img width="1999" height="1114" alt="image10" src="https://github.com/user-attachments/assets/9a6f294e-8b35-4c1b-b74f-5f17810d988e" />
+  <br>
+<img width="1999" height="1120" alt="image6" src="https://github.com/user-attachments/assets/4e71a541-889d-4e29-8c22-24a0e8314ae1" />
+</p>
+
+Approximately 30 to 50 images were captured for each gesture category. To enhance model robustness, the dataset incorporated variations in angles, distances, and hands from multiple team members to ensure the network learned the generalized gesture rather than subject-specific features. During real-time inference, the interactive sliders provided immediate feedback, demonstrating high probability confidence for the correct gestures.
+
+#### 4.3.2 Image Classification (Emotion Recognition)
+This phase aimed to classify facial expressions into four specific states: None, Happy, Sad, and Angry.
+
+<p align="center">
+<img width="1999" height="1113" alt="image9" src="https://github.com/user-attachments/assets/afaaa0f2-388e-44df-98d2-aeb15e6800a7" />
+<img width="1999" height="1106" alt="image31" src="https://github.com/user-attachments/assets/1dfe8a32-4a1a-4662-8fa5-0f80aeb589a4" />
+  <br>
+<img width="1999" height="1109" alt="image13" src="https://github.com/user-attachments/assets/4bb2d12a-4152-4d1f-b532-209bbd87dd0a" />
+<img width="1999" height="1096" alt="image40" src="https://github.com/user-attachments/assets/e497996b-9aca-4ea9-add2-7d58a28f4804" />
+</p>
+
+A balanced dataset consisting of 51 images per category was collected to train the ResNet-18 backbone. The model successfully distinguished between the emotional states by isolating key facial features. Live execution validated that the architecture could track and classify emotional shifts in real-time.
+
+#### 4.3.3 Image Classification (Fingers 1-5)
+This task introduced higher complexity by requiring the model to differentiate between five visually similar classes representing finger counts.
+
+<p align="center">
+<img width="1806" height="1093" alt="image36" src="https://github.com/user-attachments/assets/1832fb82-0f14-4980-b600-fbc7a99c2aa7" />
+<img width="1808" height="1107" alt="image46" src="https://github.com/user-attachments/assets/47773702-fd85-4c1f-b86b-af6b5cf1ce8c" />
+<img width="1808" height="1097" alt="image17" src="https://github.com/user-attachments/assets/d2b84753-406f-4088-b1bc-770157dcf601" />
+  <br>
+<img width="1576" height="1031" alt="image5" src="https://github.com/user-attachments/assets/e26f72be-6c28-4a97-99ed-a56600955faf" />
+<img width="1147" height="940" alt="image18" src="https://github.com/user-attachments/assets/dea62bf0-d2be-4fd7-923c-ad34000efc4c" />
+</p>
+
+A larger dataset ranging from 111 to 162 images per class was collected to mitigate confusion between the structurally similar hand configurations. The ResNet-18 architecture achieved high accuracy, verifying its capability to process multiple discrete classifications simultaneously.
+
+#### 4.3.4 Image Classification (Custom Gestures: Rock, Luck, Dog)
+The final classification assessment utilized custom gestures.
+
+<p align="center">
+<img width="1067" height="856" alt="image11" src="https://github.com/user-attachments/assets/3100ebfc-9be5-43d5-ba1b-8603ac1307e7" />
+<img width="1062" height="905" alt="image27" src="https://github.com/user-attachments/assets/b0f008f1-f65a-4518-a917-29102e2c2798" />
+<img width="1062" height="905" alt="image27" src="https://github.com/user-attachments/assets/b0f008f1-f65a-4518-a917-29102e2c2798" />  
+</p>
+
+A restricted dataset of 36 images per category was utilized for this trial. Despite the limited sample size, the model achieved 100% training accuracy. This outcome highlighted a clear instance of overfitting, as the network perfectly memorized the specific gestures within the static laboratory environment rather than learning generalized features.
+
+#### 4.3.5 Image Regression (Nose, Left/Right Eye)
+The regression task required the system to continuously track and output coordinates for specific facial keypoints: the nose, left eye, and right eye.
+
+**ResNet-18 Regression Tracking**
+<p align="center">
+<img width="1999" height="934" alt="image25" src="https://github.com/user-attachments/assets/b34e4865-4c43-4a05-a008-d133fd42d7ea" />
+<img width="574" height="398" alt="image32" src="https://github.com/user-attachments/assets/f870923e-a4f0-42e9-9f4e-4be41dd50865" />
+<img width="578" height="399" alt="image1" src="https://github.com/user-attachments/assets/e01a065f-cf83-4dba-9f8f-dec1aa1366b5" />
+</p>
+
+**ResNet-34 Regression Tracking**
+<p align="center">
+<img width="572" height="401" alt="image44" src="https://github.com/user-attachments/assets/fd4253c5-d29e-48ed-9527-e018e1c8bfd0" />
+<img width="584" height="393" alt="image23" src="https://github.com/user-attachments/assets/80e73d25-a58c-48ae-8782-47396b37f3a5" />
+<img width="582" height="395" alt="image7" src="https://github.com/user-attachments/assets/579c6b45-3709-4c2d-928b-95bad4de3179" />
+</p>
+
+
+## 5. Data & Observations
+The recorded data illustrates the performance metrics derived from the interactive testing across varying architectures and epoch configurations.
+
+* **Underfitting (30 Epochs):** The model exhibited elevated loss values and reduced accuracy, which translated to erratic and jittery slider responses during real-time testing.
+* **Optimal Training (50 Epochs):** This hyperparameter setting yielded a robust balance, achieving 98.10% accuracy while maintaining the model's capacity to generalize to novel hand positions.
+* **Overfitting (100 Epochs):** Although the training accuracy neared 100%, the model became excessively sensitized to the specific lighting conditions and background environments present during training.
+
+### 5.1 Epoch Comparison
+The following table compares the four required models for the Thumbs Up/Down classification task based on the final laboratory observations.
+
+| Architecture | Dataset Count | Final Loss | Final Accuracy |
+| :--- | :--- | :--- | :--- |
+| **ResNet-18** | 334 | 0.0103 | 98.10% |
+| **ResNet-34** | 395 | 0.0154 | 96.30% |
+| **AlexNet** | 233 | 0.0876 | 47.39% |
+| **SqueezeNet** | 303 | 0.0871 | 51.83% |
+
+### 5.3 Code Execution Documentation
+
+*(Note: Combine your code snippet screenshots into wide composite images and place them here. Ensure they are uploaded to the `/images` directory.)*
+
+**Classification Scripts**
+<p align="center">
+  <img width="100%" alt="Classification Code 1" src="images/image34.png" />
+  <img width="100%" alt="Classification Code 2" src="images/image33.png" />
+  <img width="100%" alt="Classification Code 3" src="images/image35.png" />
+  <img width="100%" alt="Classification Code 4" src="images/image29.png" />
+  <img width="100%" alt="Classification Code 5" src="images/image38.png" />
+  <img width="100%" alt="Classification Code 6" src="images/image37.png" />
+  <img width="100%" alt="Classification Code 7" src="images/image14.png" />
+  <img width="100%" alt="Classification Code 8" src="images/image28.png" />
+  <img width="100%" alt="Classification Code 9" src="images/image39.png" />
+  <img width="100%" alt="Classification Code 10" src="images/image45.png" />
+</p>
+
+**Regression Scripts**
+<p align="center">
+  <img width="100%" alt="Regression Code 1" src="images/image4.png" />
+  <img width="100%" alt="Regression Code 2" src="images/image8.png" />
+  <img width="100%" alt="Regression Code 3" src="images/image2.png" />
+  <img width="100%" alt="Regression Code 4" src="images/image24.png" />
+  <img width="100%" alt="Regression Code 5" src="images/image20.png" />
+  <img width="100%" alt="Regression Code 6" src="images/image16.png" />
+  <img width="100%" alt="Regression Code 7" src="images/image42.png" />
+  <img width="100%" alt="Regression Code 8" src="images/image19.png" />
+  <img width="100%" alt="Regression Code 9" src="images/image3.png" />
+</p>
+
 
 # Lab 2: YOLOv11n Object Detection Task
 
